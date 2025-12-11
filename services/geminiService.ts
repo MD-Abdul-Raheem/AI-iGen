@@ -2,15 +2,12 @@
 import { GoogleGenAI } from "@google/genai";
 import type { ImageParts } from '../types';
 
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable is not set.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
-
 export async function generateImageFromText(prompt: string): Promise<string> {
+  const API_KEY = process.env.API_KEY;
+  
+  // Note: We use the standard environment API key for Flash Image.
+  const ai = new GoogleGenAI({ apiKey: API_KEY });
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
@@ -18,10 +15,9 @@ export async function generateImageFromText(prompt: string): Promise<string> {
         parts: [{ text: prompt }],
       },
       config: {
-        // We do not set responseModalities for image generation as per SDK examples for this model.
-        // We can optionally set imageConfig here (e.g., aspectRatio).
         imageConfig: {
-            aspectRatio: "1:1"
+            aspectRatio: "1:1",
+            // imageSize is not supported for gemini-2.5-flash-image
         }
       },
     });

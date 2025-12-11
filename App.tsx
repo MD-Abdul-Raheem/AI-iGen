@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { generateImageFromText } from './services/geminiService';
 import { RocketIcon, SearchIcon, HeartIcon, SolidHeartIcon, InfinityIcon, DownloadIcon, MorphingPolygonIcon } from './components/icons';
 
@@ -161,7 +161,7 @@ const LeftPanel: React.FC<{
                     <h3 className="text-[10px] text-slate-500 font-orbitron tracking-widest uppercase">Dashboard</h3>
                     <div className="flex items-center gap-2 text-slate-300 mb-1">
                         <RocketIcon />
-                        <span className="text-xs font-semibold">Pro Plan</span>
+                        <span className="text-xs font-semibold">Flash Model</span>
                     </div>
                     
                     {/* Favorites Horizontal Scroll */}
@@ -219,10 +219,11 @@ const CenterPanel: React.FC<{
     return (
         <div className="flex-grow flex flex-col gap-4 z-10 min-w-0 order-1 lg:order-none">
              {/* Header */}
-             <div className="text-center lg:text-left">
+             <div className="text-center lg:text-left flex items-center justify-center lg:justify-start gap-3">
                 <h1 className="font-orbitron text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-sky-400 tracking-widest glow-text">
                     AI iGen
                 </h1>
+                <span className="px-2 py-0.5 rounded border border-sky-500/30 bg-sky-900/30 text-[9px] text-sky-300 font-mono tracking-wider">FLASH</span>
             </div>
 
             {/* Main Controls Card */}
@@ -504,6 +505,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-start bg-[#020617] text-slate-200">
+      
       {error && (
         <div 
           className="fixed top-6 left-1/2 -translate-x-1/2 bg-red-500/10 border border-red-500 text-red-200 px-6 py-3 rounded-lg z-50 cursor-pointer backdrop-blur-md shadow-[0_0_20px_rgba(239,68,68,0.3)] font-mono text-sm"

@@ -1,5 +1,5 @@
 {
-  "name": "iOGen - AI Image Editor",
+  "name": "AI iGen",
   "description": "An AI-powered image editing application that allows users to modify images using text prompts, powered by the Gemini 2.5 Flash Image model. The app features a futuristic, high-tech interface for an intuitive user experience.",
   "requestFramePermissions": []
 }
