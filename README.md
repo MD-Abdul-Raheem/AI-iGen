@@ -209,8 +209,3 @@ For issues, questions, or suggestions:
 - Check the About page in the app for detailed feature explanations
 
 ---
-
-<div align="center">
-  <p><strong>Built with ❤️ using Google Gemini AI</strong></p>
-  <p>Version 1.0.0</p>
-</div>
